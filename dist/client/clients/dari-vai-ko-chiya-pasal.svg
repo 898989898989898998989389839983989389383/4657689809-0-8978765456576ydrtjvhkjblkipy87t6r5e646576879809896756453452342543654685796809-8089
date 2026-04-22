@@ -1,0 +1,14 @@
+<svg width="320" height="180" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="180" rx="28" fill="url(#bg)"/>
+  <rect x="18" y="18" width="284" height="144" rx="22" fill="white" fill-opacity="0.94"/>
+  <circle cx="76" cy="82" r="38" fill="#2047A8"/>
+  <path d="M59 79C59 68.5 67.5 60 78 60H82.5C90 60 96 66 96 73.5V78H102C104.8 78 107 80.2 107 83V84C107 89.5 102.5 94 97 94H93.4C91.2 101.6 84.1 107 75.8 107H74C65.7 107 58.7 101.5 56.6 94H56V87H58.1C58.4 85.6 58.6 84.3 58.6 82.8V79H59ZM66 79V82.8C66 90.4 72.2 96.6 79.8 96.6C87.4 96.6 93.6 90.4 93.6 82.8V73.5C93.6 69.9 90.7 67 87.1 67H78C71.4 67 66 72.4 66 79ZM96 87H97C98.6 87 100 85.6 100 84V83C100 82.4 99.6 82 99 82H96V87Z" fill="#F4B544"/>
+  <text x="128" y="74" fill="#102A63" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">Dari Vai ko</text>
+  <text x="128" y="101" fill="#5B6785" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">Chiya Pasal</text>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="12" x2="286" y2="172" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3D8"/>
+      <stop offset="1" stop-color="#E8F2FF"/>
+    </linearGradient>
+  </defs>
+</svg>
