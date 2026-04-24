@@ -21,11 +21,6 @@ import SectionHeading from "@/components/SectionHeading";
 
 const heroSlides = [
   {
-    image: "https://www.rathielectricals.com/upload/content/banner/bannerimage-2023-04-05-10-21-47-CA7.jpg",
-    alt: "Rathi Electricals banner",
-    position: "center center",
-  },
-  {
     image: heroImg,
     alt: "Shuva Electric showroom lighting display",
     position: "center center",
@@ -34,6 +29,11 @@ const heroSlides = [
     image: heroImg,
     alt: "Shuva Electric showroom electrical products",
     position: "center 35%",
+  },
+  {
+    image: "https://www.rathielectricals.com/upload/content/banner/bannerimage-2023-04-05-10-21-47-CA7.jpg",
+    alt: "Rathi Electricals banner",
+    position: "center center",
   },
   {
     image: heroImg,
