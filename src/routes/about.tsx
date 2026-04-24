@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import Link from "@/components/AppLink";
 import {
   Award,
   Clock3,
@@ -14,19 +14,6 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-showroom.jpg";
 import SectionHeading from "@/components/SectionHeading";
-import { buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/about")({
-  head: () =>
-    buildSeoMeta({
-      title: "About Shuva Electric And Electronic | Trusted Electrical Partner in Kathmandu",
-      description:
-        "Learn about Shuva Electric And Electronic, a trusted electrical products, wholesale supply, and service partner for homes, businesses, and project clients across Kathmandu Valley.",
-      path: "/about",
-      keywords: ["about Shuva Electric", "electrical company Kathmandu", "electrical supplier Old Baneshwor"],
-    }),
-  component: AboutPage,
-});
 
 const values = [
   {
@@ -83,7 +70,7 @@ const reasons = [
   },
 ] as const;
 
-function AboutPage() {
+export default function AboutPage() {
   return (
     <main className="bg-[linear-gradient(180deg,#f6f8fc_0%,#ffffff_18%,#f9fbff_52%,#fffaf2_100%)]">
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#102657_0%,#173d8d_46%,#f0b44f_100%)]">

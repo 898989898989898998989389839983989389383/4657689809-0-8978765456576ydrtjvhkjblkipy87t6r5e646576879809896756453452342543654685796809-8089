@@ -1,20 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import Link from "@/components/AppLink";
 import { Star, Zap, Search } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
-import { buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/shop")({
-  head: () =>
-    buildSeoMeta({
-      title: "Electrical Products in Kathmandu | Wires, Switches, LEDs, MCBs",
-      description:
-        "Browse electrical products from Shuva Electric And Electronic including wires, switches, sockets, LED lights, fans, MCBs, CCTV items, and safety tools.",
-      path: "/shop",
-      keywords: ["electrical products Kathmandu", "buy wires and cables Nepal", "switches and MCB Kathmandu"],
-    }),
-  component: ShopPage,
-});
 
 const categories = [
   "All",
@@ -232,7 +219,7 @@ const products = [
   },
 ] as const;
 
-function ShopPage() {
+export default function ShopPage() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
 

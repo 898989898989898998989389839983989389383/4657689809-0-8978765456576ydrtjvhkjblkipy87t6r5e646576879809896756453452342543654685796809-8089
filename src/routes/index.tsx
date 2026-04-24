@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import Link from "@/components/AppLink";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
@@ -18,19 +18,6 @@ import {
 } from "lucide-react";
 import heroImg from "@/assets/hero-showroom.jpg";
 import SectionHeading from "@/components/SectionHeading";
-import { buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/")({
-  head: () =>
-    buildSeoMeta({
-      title: "Electrical Shop in Kathmandu | Products, Services, and Wholesale Supply",
-      description:
-        "Visit Shuva Electric And Electronic for electrical products, project supply, electrician services, and wholesale support in Old Baneshwor, Kathmandu.",
-      path: "/",
-      keywords: ["electrical shop Kathmandu", "electrical showroom Old Baneshwor", "electrical wholesale Nepal"],
-    }),
-  component: HomePage,
-});
 
 const heroSlides = [
   {
@@ -150,7 +137,7 @@ const serviceHighlights = [
   "Neat finishing",
 ] as const;
 
-function HomePage() {
+export default function HomePage() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {

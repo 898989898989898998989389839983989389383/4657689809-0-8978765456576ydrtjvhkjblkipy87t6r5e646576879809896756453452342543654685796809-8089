@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import Link from "@/components/AppLink";
 import {
   Zap,
   Wrench,
@@ -12,19 +12,6 @@ import {
   BatteryCharging,
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import { buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/services")({
-  head: () =>
-    buildSeoMeta({
-      title: "Electrical Services in Kathmandu | House Wiring, Repairs, Panels",
-      description:
-        "Professional electrical services in Kathmandu including house wiring, office setup, maintenance, lighting installation, panel board work, and safety inspections.",
-      path: "/services",
-      keywords: ["electrician Kathmandu", "house wiring Kathmandu", "electrical repair Kathmandu"],
-    }),
-  component: ServicesPage,
-});
 
 const servicesList = [
   {
@@ -79,7 +66,7 @@ const servicesList = [
   },
 ] as const;
 
-function ServicesPage() {
+export default function ServicesPage() {
   return (
     <main className="bg-surface py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">

@@ -1,18 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
 import SectionHeading from "@/components/SectionHeading";
-import { buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/brands")({
-  head: () =>
-    buildSeoMeta({
-      title: "Electrical Brands We Carry | Havells, Schneider, Legrand, Philips",
-      description:
-        "Explore the trusted electrical brands available at Shuva Electric And Electronic including Havells, Schneider Electric, Legrand, Philips, Anchor, Polycab, and more.",
-      path: "/brands",
-      keywords: ["electrical brands Kathmandu", "Havells dealer Kathmandu", "Schneider Electric supplier Nepal"],
-    }),
-  component: BrandsPage,
-});
 
 const brandsList = [
   {
@@ -101,7 +87,7 @@ const brandsList = [
   },
 ];
 
-function BrandsPage() {
+export default function BrandsPage() {
   return (
     <main className="bg-surface py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">

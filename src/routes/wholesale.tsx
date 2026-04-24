@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import {
   Truck,
   ShieldCheck,
@@ -10,19 +9,6 @@ import {
 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
-import { buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/wholesale")({
-  head: () =>
-    buildSeoMeta({
-      title: "Wholesale Electrical Supply in Kathmandu | Bulk Orders and Project Supply",
-      description:
-        "Get competitive wholesale electrical pricing for contractors, builders, electricians, institutions, and resellers with bulk supply support in Kathmandu Valley.",
-      path: "/wholesale",
-      keywords: ["wholesale electrical Kathmandu", "bulk electrical supply Nepal", "project electrical supplier Kathmandu"],
-    }),
-  component: WholesalePage,
-});
 
 const benefits = [
   {
@@ -43,7 +29,7 @@ const benefits = [
   },
 ];
 
-function WholesalePage() {
+export default function WholesalePage() {
   const [form, setForm] = useState({ name: "", phone: "", company: "", message: "" });
 
   return (

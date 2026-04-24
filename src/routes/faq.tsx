@@ -1,20 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
-import { buildFaqJsonLd, buildSeoMeta } from "@/lib/seo";
-
-export const Route = createFileRoute("/faq")({
-  head: () =>
-    buildSeoMeta({
-      title: "FAQ | Electrical Products, Services, Wholesale, and Delivery",
-      description:
-        "Find answers to common questions about Shuva Electric And Electronic products, electrician services, wholesale pricing, returns, and delivery in Kathmandu Valley.",
-      path: "/faq",
-      keywords: ["electrical shop FAQ Kathmandu", "wholesale electrical questions", "electrician service FAQ Nepal"],
-    }),
-  component: FAQPage,
-});
+import { buildFaqJsonLd } from "@/lib/seo";
 
 const faqGroups = [
   {
@@ -107,7 +94,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-function FAQPage() {
+export default function FAQPage() {
   const allFaqItems = faqGroups.flatMap((group) => group.items);
 
   return (

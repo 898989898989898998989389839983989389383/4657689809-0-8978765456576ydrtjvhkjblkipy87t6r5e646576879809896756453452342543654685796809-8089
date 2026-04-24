@@ -1,22 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, MessageCircle, Clock, ReceiptText } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
-import { buildSeoMeta } from "@/lib/seo";
 
-export const Route = createFileRoute("/contact")({
-  head: () =>
-    buildSeoMeta({
-      title: "Contact Shuva Electric And Electronic | Old Baneshwor, Kathmandu",
-      description:
-        "Contact Shuva Electric And Electronic for electrical product enquiries, electrician bookings, wholesale quotes, and showroom visits in Old Baneshwor, Kathmandu.",
-      path: "/contact",
-      keywords: ["contact electrical shop Kathmandu", "Shuva Electric phone number", "Old Baneshwor electrical store"],
-    }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function ContactPage() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
 
   return (

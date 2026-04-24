@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import Link from "./AppLink";
 import Logo from "./Logo";
 
 const navLinks = [
