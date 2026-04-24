@@ -21,6 +21,11 @@ import SectionHeading from "@/components/SectionHeading";
 
 const heroSlides = [
   {
+    image: "/hero-slide-first.png",
+    alt: "Shuva Electric featured products",
+    position: "center center",
+  },
+  {
     image: heroImg,
     alt: "Shuva Electric showroom lighting display",
     position: "center center",
