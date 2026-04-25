@@ -69,7 +69,7 @@ const clients = [
   {
     title: "Kings College",
     desc: "Electrical product supply and project support for a leading education campus.",
-    image: "https://kingscollege.edu.np/_next/image?url=%2Flogo%2Fkings.png&w=640&q=75",
+    image: "https://kingscollege.edu.np/_next/image?url=%2Flogo%2Fkings-new-logo-main.png&w=640&q=100",
   },
   {
     title: "NPL",
