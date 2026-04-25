@@ -277,12 +277,12 @@ export default function ShopPage() {
           {filtered.map((p, index) => (
             <div
               key={p.name}
-              className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
+              className="group flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
             >
               <button
                 type="button"
                 onClick={() => openViewer(index)}
-                className="mb-4 flex h-44 w-full items-center justify-center overflow-hidden rounded-xl bg-secondary text-left"
+                className="mb-4 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl bg-secondary text-left"
                 aria-label={`View ${p.name}`}
               >
                 {"image" in p && p.image ? (
@@ -307,7 +307,7 @@ export default function ShopPage() {
                 <Star className="h-3.5 w-3.5 fill-gold text-gold" />
                 <span className="text-xs text-muted-foreground">{p.rating}</span>
               </div>
-              <div className="mt-3 flex items-center justify-between">
+              <div className="mt-auto flex items-center justify-between gap-3 pt-4">
                 <span className="font-bold text-foreground">{p.price}</span>
                 <button
                   type="button"
@@ -328,9 +328,9 @@ export default function ShopPage() {
         )}
 
         {selectedProduct && (
-          <div className="fixed inset-0 z-[80] bg-slate-950/78 p-4 backdrop-blur-md sm:p-6">
-            <div className="mx-auto flex h-full max-w-6xl items-center justify-center">
-              <div className="relative grid max-h-full w-full overflow-hidden rounded-[1.75rem] border border-white/15 bg-white shadow-[0_34px_90px_-34px_rgba(0,0,0,0.75)] lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/78 p-3 backdrop-blur-md sm:p-6">
+            <div className="mx-auto flex min-h-full max-w-6xl items-center justify-center">
+              <div className="relative my-auto grid w-full overflow-hidden rounded-[1.35rem] border border-white/15 bg-white shadow-[0_34px_90px_-34px_rgba(0,0,0,0.75)] sm:rounded-[1.75rem] lg:max-h-[calc(100vh-3rem)] lg:grid-cols-[1.08fr_0.92fr]">
                 <button
                   type="button"
                   onClick={closeViewer}
@@ -340,12 +340,12 @@ export default function ShopPage() {
                   <X className="h-5 w-5" />
                 </button>
 
-                <div className="relative flex min-h-[340px] items-center justify-center bg-[linear-gradient(135deg,#f8fbff,#fff8ed)] p-4 sm:min-h-[520px] sm:p-6">
+                <div className="relative flex min-h-[260px] items-center justify-center bg-[linear-gradient(135deg,#f8fbff,#fff8ed)] p-4 sm:min-h-[430px] sm:p-6 lg:min-h-0">
                   {"image" in selectedProduct && selectedProduct.image ? (
                     <img
                       src={selectedProduct.image}
                       alt={selectedProduct.name}
-                      className="max-h-[70vh] w-full rounded-[1.25rem] object-contain shadow-[0_24px_70px_-44px_rgba(17,41,104,0.45)]"
+                      className="max-h-[62vh] w-full rounded-[1rem] object-contain shadow-[0_24px_70px_-44px_rgba(17,41,104,0.45)] sm:rounded-[1.25rem] lg:max-h-[calc(100vh-7rem)]"
                       width={1280}
                       height={1280}
                     />
@@ -360,7 +360,7 @@ export default function ShopPage() {
                       <button
                         type="button"
                         onClick={showPrev}
-                        className="absolute left-5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-transform hover:-translate-y-[52%]"
+                        className="absolute left-3 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-transform hover:-translate-y-[52%] sm:left-5 sm:h-11 sm:w-11"
                         aria-label="Previous product"
                       >
                         <ChevronLeft className="h-5 w-5" />
@@ -368,7 +368,7 @@ export default function ShopPage() {
                       <button
                         type="button"
                         onClick={showNext}
-                        className="absolute right-5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-transform hover:-translate-y-[52%]"
+                        className="absolute right-3 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-transform hover:-translate-y-[52%] sm:right-5 sm:h-11 sm:w-11"
                         aria-label="Next product"
                       >
                         <ChevronRight className="h-5 w-5" />
@@ -377,7 +377,7 @@ export default function ShopPage() {
                   )}
                 </div>
 
-                <div className="overflow-y-auto p-6 sm:p-8">
+                <div className="p-5 sm:p-8 lg:overflow-y-auto">
                   <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
                     {selectedProduct.category}
                   </span>

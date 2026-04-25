@@ -313,16 +313,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative py-18 lg:py-24">
+      <section className="relative py-16 lg:py-20">
         <div className="absolute inset-x-0 top-0 -z-10 h-48 bg-[radial-gradient(circle_at_center,rgba(255,211,105,0.16),transparent_60%)]" />
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeading
-              badge="Featured Products"
-              title="Popular Electrical Products"
-              description="Explore selected lighting and electrical products available for retail, wholesale, and project supply."
-              center={false}
-            />
+          <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <span className="mb-4 inline-flex items-center rounded-full border border-primary/12 bg-white/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary shadow-[0_10px_24px_-18px_rgba(23,54,135,0.6)] backdrop-blur">
+                Featured Products
+              </span>
+              <h2 className="text-3xl font-bold tracking-[-0.03em] text-foreground sm:text-4xl lg:text-5xl">
+                Popular Electrical Products
+              </h2>
+              <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-[1.05rem]">
+                Explore selected lighting and electrical products available for retail,
+                wholesale, and project supply.
+              </p>
+            </div>
             <Link
               to="/shop"
               className="inline-flex w-fit items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_18px_40px_-20px_rgba(32,71,168,0.6)] transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
@@ -332,11 +338,11 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid items-stretch gap-5 md:grid-cols-3">
             {featuredProducts.map((product) => (
               <article
                 key={product.name}
-                className="group overflow-hidden rounded-[1.75rem] border border-white/75 bg-white/92 shadow-[0_24px_70px_-38px_rgba(17,41,104,0.34)] backdrop-blur transition-all hover:-translate-y-1.5 hover:shadow-[0_34px_80px_-40px_rgba(17,41,104,0.42)]"
+                className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-white/75 bg-white/92 shadow-[0_24px_70px_-38px_rgba(17,41,104,0.34)] backdrop-blur transition-all hover:-translate-y-1 hover:shadow-[0_34px_80px_-40px_rgba(17,41,104,0.42)]"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-surface">
                   <img
@@ -352,7 +358,7 @@ export default function HomePage() {
                     {product.category}
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="flex flex-1 flex-col p-6">
                   <div className="mb-3 flex items-center gap-1.5 text-gold">
                     {Array.from({ length: 5 }).map((_, index) => (
                       <Star key={index} className="h-3.5 w-3.5 fill-current" />
@@ -360,7 +366,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">{product.name}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.desc}</p>
-                  <div className="mt-5 flex items-center justify-between gap-3">
+                  <div className="mt-auto flex items-center justify-between gap-3 pt-5">
                     <span className="text-sm font-bold text-foreground">Call for Price</span>
                     <Link
                       to="/shop"
