@@ -47,13 +47,6 @@ const brandsList = [
     image: "https://medakmedical.com/uploads/CAT/Philips_logo.jpg",
   },
   {
-    name: "Anchor by Panasonic",
-    desc: "Switches, sockets, fans, and wiring accessories",
-    image: "/brands/anchor.svg",
-  },
-  { name: "Finolex", desc: "Wires, cables, and electrical conduits", image: "/brands/finolex.svg" },
-  { name: "Polycab", desc: "Wires, cables, fans, and switches", image: "/brands/polycab.svg" },
-  {
     name: "Syska",
     desc: "LED lights, smart lighting, and personal care electronics",
     image: "/brands/syska.svg",
