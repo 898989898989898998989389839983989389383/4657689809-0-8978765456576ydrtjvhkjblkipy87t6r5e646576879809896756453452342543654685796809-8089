@@ -1,5 +1,4 @@
-import Link from "@/components/AppLink";
-import { Star, Zap, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, MessageCircle, Phone, Search, Star, X, Zap } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { useState } from "react";
 
@@ -222,12 +221,25 @@ const products = [
 export default function ShopPage() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const filtered = products.filter((p) => {
     const matchCat = active === "All" || p.category === active;
     const matchSearch = p.name.toLowerCase().includes(search.toLowerCase());
     return matchCat && matchSearch;
   });
+  const selectedProduct = selectedIndex === null ? null : filtered[selectedIndex];
+
+  const openViewer = (index: number) => setSelectedIndex(index);
+  const closeViewer = () => setSelectedIndex(null);
+  const showPrev = () => {
+    setSelectedIndex((current) =>
+      current === null ? 0 : (current - 1 + filtered.length) % filtered.length,
+    );
+  };
+  const showNext = () => {
+    setSelectedIndex((current) => (current === null ? 0 : (current + 1) % filtered.length));
+  };
 
   return (
     <main className="bg-surface py-14 lg:py-20">
@@ -262,17 +274,22 @@ export default function ShopPage() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((p) => (
+          {filtered.map((p, index) => (
             <div
               key={p.name}
-              className="rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:shadow-card-hover"
+              className="group rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
             >
-              <div className="mb-4 flex h-44 items-center justify-center overflow-hidden rounded-xl bg-secondary">
+              <button
+                type="button"
+                onClick={() => openViewer(index)}
+                className="mb-4 flex h-44 w-full items-center justify-center overflow-hidden rounded-xl bg-secondary text-left"
+                aria-label={`View ${p.name}`}
+              >
                 {"image" in p && p.image ? (
                   <img
                     src={p.image}
                     alt={p.name}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                     width={960}
                     height={1280}
@@ -280,7 +297,7 @@ export default function ShopPage() {
                 ) : (
                   <Zap className="h-8 w-8 text-primary/25" />
                 )}
-              </div>
+              </button>
               <span className="text-xs font-medium uppercase tracking-wider text-primary">
                 {p.category}
               </span>
@@ -292,12 +309,13 @@ export default function ShopPage() {
               </div>
               <div className="mt-3 flex items-center justify-between">
                 <span className="font-bold text-foreground">{p.price}</span>
-                <a
-                  href="tel:+9779843766006"
+                <button
+                  type="button"
+                  onClick={() => openViewer(index)}
                   className="rounded-lg bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                 >
-                  Call for Price
-                </a>
+                  View Details
+                </button>
               </div>
             </div>
           ))}
@@ -307,6 +325,149 @@ export default function ShopPage() {
           <p className="py-12 text-center text-muted-foreground">
             No products found. Try a different search or category.
           </p>
+        )}
+
+        {selectedProduct && (
+          <div className="fixed inset-0 z-[80] bg-slate-950/78 p-4 backdrop-blur-md sm:p-6">
+            <div className="mx-auto flex h-full max-w-6xl items-center justify-center">
+              <div className="relative grid max-h-full w-full overflow-hidden rounded-[1.75rem] border border-white/15 bg-white shadow-[0_34px_90px_-34px_rgba(0,0,0,0.75)] lg:grid-cols-[1.08fr_0.92fr]">
+                <button
+                  type="button"
+                  onClick={closeViewer}
+                  className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-colors hover:bg-white"
+                  aria-label="Close product viewer"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+
+                <div className="relative flex min-h-[340px] items-center justify-center bg-[linear-gradient(135deg,#f8fbff,#fff8ed)] p-4 sm:min-h-[520px] sm:p-6">
+                  {"image" in selectedProduct && selectedProduct.image ? (
+                    <img
+                      src={selectedProduct.image}
+                      alt={selectedProduct.name}
+                      className="max-h-[70vh] w-full rounded-[1.25rem] object-contain shadow-[0_24px_70px_-44px_rgba(17,41,104,0.45)]"
+                      width={1280}
+                      height={1280}
+                    />
+                  ) : (
+                    <div className="flex h-72 w-full items-center justify-center rounded-[1.25rem] bg-white">
+                      <Zap className="h-16 w-16 text-primary/25" />
+                    </div>
+                  )}
+
+                  {filtered.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={showPrev}
+                        className="absolute left-5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-transform hover:-translate-y-[52%]"
+                        aria-label="Previous product"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={showNext}
+                        className="absolute right-5 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/92 text-foreground shadow-lg transition-transform hover:-translate-y-[52%]"
+                        aria-label="Next product"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                <div className="overflow-y-auto p-6 sm:p-8">
+                  <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                    {selectedProduct.category}
+                  </span>
+                  <h2 className="mt-4 text-3xl font-bold leading-tight text-foreground">
+                    {selectedProduct.name}
+                  </h2>
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
+                    {selectedProduct.desc}
+                  </p>
+
+                  <div className="mt-5 flex items-center gap-2">
+                    <div className="flex items-center gap-1 text-gold">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <Star key={index} className="h-4 w-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground">
+                      {selectedProduct.rating} customer rating
+                    </span>
+                  </div>
+
+                  <div className="mt-7 rounded-[1.25rem] border border-border bg-surface p-5">
+                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      Price
+                    </p>
+                    <p className="mt-2 text-2xl font-bold text-foreground">{selectedProduct.price}</p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      Final pricing can vary by brand, model, stock, quantity, and project
+                      requirement. Call or WhatsApp for the latest availability.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <a
+                      href="tel:+9779843766006"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Call Now
+                    </a>
+                    <a
+                      href={`https://wa.me/9779843766006?text=${encodeURIComponent(`I want details for ${selectedProduct.name}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-green-700"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      WhatsApp
+                    </a>
+                  </div>
+
+                  <div className="mt-7">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+                      More Products
+                    </p>
+                    <div className="flex gap-3 overflow-x-auto pb-2">
+                      {filtered.slice(0, 10).map((item, index) => (
+                        <button
+                          key={item.name}
+                          type="button"
+                          onClick={() => setSelectedIndex(index)}
+                          className={`h-20 w-24 shrink-0 overflow-hidden rounded-xl border bg-surface transition-all ${
+                            index === selectedIndex
+                              ? "border-primary ring-2 ring-primary/20"
+                              : "border-border hover:border-primary/40"
+                          }`}
+                          aria-label={`View ${item.name}`}
+                        >
+                          {"image" in item && item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="h-full w-full object-cover"
+                              loading="lazy"
+                              width={160}
+                              height={120}
+                            />
+                          ) : (
+                            <span className="flex h-full w-full items-center justify-center">
+                              <Zap className="h-5 w-5 text-primary/25" />
+                            </span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </main>

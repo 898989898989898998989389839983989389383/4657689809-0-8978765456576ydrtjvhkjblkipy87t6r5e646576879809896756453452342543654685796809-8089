@@ -6,10 +6,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
+  Eye,
   Headphones,
   MapPin,
   MessageCircle,
   Phone,
+  ShoppingBag,
   ShieldCheck,
   Star,
   Truck,
@@ -141,6 +143,30 @@ const serviceHighlights = [
   "Certified materials",
   "Fast response",
   "Neat finishing",
+] as const;
+
+const featuredProducts = [
+  {
+    name: "Jhumar Crystal Hanging Light",
+    category: "Decorative Lighting",
+    desc: "Premium chandelier styling for living rooms, halls, hotels, and feature spaces.",
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2gl-Uve5EMHjcTuF_2ws2hhz8QWEOtNIagg59jbl8i8stwLY_OStbXHigXM3a9TIueP_P4WU69zVy4NQh4Y-fybJtI7tbMjnB-8SegFLb1VMxu-b3qNYldYc8uzyKkrkc8ht8Dt5A1hiXqjn7U9DE-3fFmCCX7RVuumDDZryKyQtkrKi2JfdbLai3Kw/s1280/WhatsApp%20Image%202026-04-16%20at%2010.56.03%20AM%20%284%29.jpeg",
+  },
+  {
+    name: "Designer Pendant Light",
+    category: "LED Lights",
+    desc: "Clean, modern pendant lighting for homes, showrooms, and commercial interiors.",
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU5ZA2MOE3eMDi6q-WC7RPyjeGWfZqUzSFKyp-7UnUfw40x4VgNOTTnYZtT8y5MWQ4XOzoFWLgQHq7pfLrMK-LjpcvKoigEbcaGlMxnytBKUY8_l6J62l7gDe3uo7Zh_eHcXAfAVBPdXg3gY4nDAZZW5AW5IkCvMK59PsGklDGIO4g6KP9CKHbhuvoNQ/s1280/WhatsApp%20Image%202026-04-16%20at%2010.56.03%20AM%20%283%29.jpeg",
+  },
+  {
+    name: "Luxury Ceiling Jhumar",
+    category: "Decorative Lighting",
+    desc: "A bright centerpiece with decorative crystal detailing and a polished finish.",
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXO40d0lXxlKijWfY1qDdxfQmockdJQHwR_y73TUqdPADUpJ32z8QoQPcFZ4YlTHYms4DTeG_QZQrXQ8Ucd893HdGxy-DCPxI7GrZqfbZ3e1GOYfyhoNPeCzPl8tds9Wq67Oih5e-6xtJ18NTBKWkcuKE0ESBn47JzX0n5BbVSvsmqncZOEZGFiNt6tA/s1280/WhatsApp%20Image%202026-04-16%20at%2010.56.03%20AM%20%282%29.jpeg",
+  },
 ] as const;
 
 export default function HomePage() {
@@ -283,6 +309,69 @@ export default function HomePage() {
             >
               View More
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-18 lg:py-24">
+        <div className="absolute inset-x-0 top-0 -z-10 h-48 bg-[radial-gradient(circle_at_center,rgba(255,211,105,0.16),transparent_60%)]" />
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              badge="Featured Products"
+              title="Popular Electrical Products"
+              description="Explore selected lighting and electrical products available for retail, wholesale, and project supply."
+              center={false}
+            />
+            <Link
+              to="/shop"
+              className="inline-flex w-fit items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_18px_40px_-20px_rgba(32,71,168,0.6)] transition-transform hover:-translate-y-0.5 hover:bg-primary/90"
+            >
+              <Eye className="h-4 w-4" />
+              View More
+            </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {featuredProducts.map((product) => (
+              <article
+                key={product.name}
+                className="group overflow-hidden rounded-[1.75rem] border border-white/75 bg-white/92 shadow-[0_24px_70px_-38px_rgba(17,41,104,0.34)] backdrop-blur transition-all hover:-translate-y-1.5 hover:shadow-[0_34px_80px_-40px_rgba(17,41,104,0.42)]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-surface">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    width={960}
+                    height={720}
+                  />
+                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/92 px-3 py-1.5 text-xs font-semibold text-primary shadow-sm backdrop-blur">
+                    <ShoppingBag className="h-3.5 w-3.5" />
+                    {product.category}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="mb-3 flex items-center gap-1.5 text-gold">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} className="h-3.5 w-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">{product.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{product.desc}</p>
+                  <div className="mt-5 flex items-center justify-between gap-3">
+                    <span className="text-sm font-bold text-foreground">Call for Price</span>
+                    <Link
+                      to="/shop"
+                      className="rounded-lg bg-primary/10 px-3 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
