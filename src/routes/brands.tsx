@@ -149,7 +149,7 @@ const brandsList = [
     name: "Sintech",
     desc: "Pumps, motors, and electrical utility products",
     image:
-      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuNxRbX3dq0y_igiVRrlqXIc_w6zaFeP4O2nDlz5Tgv40oyeg0CyJ6DPNb5CGO2R3zHuHs4qTYCJGJL6iNmGNM5gdscrGJ-OBCe1BhawsIg-nkkqB0QZawF54y4PF63qxvvvL1zV2UrB_RzgSRvh5LOe9_y4ztVbsnG86VWQh05xwWGwh-FtlBmCW8GQ/s1600/SINTECH.png",
+      "https://scontent.fktm21-2.fna.fbcdn.net/v/t39.30808-6/283213488_3213234265623752_1100060837774504630_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEzig2X45op2btUh-NLuEIJwULCzQGOG6rBQsLNAY4bqgZgIDeBuoAQLmBh7vvdexNN9sx7gqDvHS0w7p9GIC1H&_nc_ohc=y1vW_5UGClEQ7kNvwH3_9Vh&_nc_oc=AdrCahJhoHoF0XgEYCF-78tjIwsc3qm5fgkxclB6ktKQffyskPWpaiN5O1-U8lmfa945F0xLZUSz0OSAgMBwcYs5&_nc_zt=23&_nc_ht=scontent.fktm21-2.fna&_nc_gid=tKTXPlUm8FdLBDasG0uxEQ&_nc_ss=7b2a8&oh=00_Af0tZi6m7KufK-jX1cKn6qbet_eNR4ttIvJKvB7PvcjpOw&oe=69F28A62",
   },
   {
     name: "Vishal Electro",
