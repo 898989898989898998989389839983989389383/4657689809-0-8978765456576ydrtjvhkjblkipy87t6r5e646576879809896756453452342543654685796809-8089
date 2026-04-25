@@ -12,8 +12,9 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import heroImg from "@/assets/hero-showroom.jpg";
 import SectionHeading from "@/components/SectionHeading";
+
+const aboutImage = "/hero-slide-first.png";
 
 const values = [
   {
@@ -74,12 +75,12 @@ export default function AboutPage() {
   return (
     <main className="bg-[linear-gradient(180deg,#f6f8fc_0%,#ffffff_18%,#f9fbff_52%,#fffaf2_100%)]">
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#102657_0%,#173d8d_46%,#f0b44f_100%)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,223,152,0.22),transparent_24%),radial-gradient(circle_at_left_center,rgba(255,255,255,0.14),transparent_28%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,13,34,0.18),rgba(5,13,34,0.48))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,223,152,0.2),transparent_26%),radial-gradient(circle_at_left_center,rgba(255,255,255,0.13),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,13,34,0.82),rgba(5,13,34,0.42)_48%,rgba(5,13,34,0.22)),linear-gradient(180deg,rgba(5,13,34,0.14),rgba(5,13,34,0.5))]" />
         <img
-          src={heroImg}
-          alt="Shuva Electric showroom"
-          className="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-85"
+          src={aboutImage}
+          alt="Shuva Electric featured electrical products"
+          className="absolute inset-0 h-full w-full object-cover opacity-80"
           width={1920}
           height={1080}
         />
@@ -92,7 +93,7 @@ export default function AboutPage() {
                 About Shuva Electric And Electronic
               </span>
               <h1 className="text-4xl font-bold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
-                Electrical supply and support built on trust, clarity, and local service
+                Trusted electrical products, practical advice, and steady local support
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-white/82 sm:text-lg">
                 From our Old Baneshwor showroom to project and wholesale coordination across
@@ -121,7 +122,7 @@ export default function AboutPage() {
               {milestones.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-[1.75rem] border border-white/16 bg-white/12 p-6 text-white shadow-[0_28px_60px_-36px_rgba(0,0,0,0.7)] backdrop-blur-md"
+                  className="rounded-[1.45rem] border border-white/16 bg-white/12 p-6 text-white shadow-[0_28px_60px_-36px_rgba(0,0,0,0.7)] backdrop-blur-md"
                 >
                   <p className="text-3xl font-bold tracking-[-0.04em]">{item.value}</p>
                   <p className="mt-2 text-sm leading-6 text-white/74">{item.label}</p>
@@ -135,7 +136,7 @@ export default function AboutPage() {
       <section className="-mt-8 pb-4 sm:-mt-10 lg:-mt-12">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-[2rem] border border-white/70 bg-white/92 p-8 shadow-[0_28px_80px_-42px_rgba(17,41,104,0.28)] backdrop-blur lg:p-10">
+            <div className="rounded-[1.75rem] border border-white/70 bg-white/92 p-8 shadow-[0_28px_80px_-42px_rgba(17,41,104,0.28)] backdrop-blur lg:p-10">
               <SectionHeading
                 badge="Our Story"
                 title="How we grew with our customers"
@@ -161,7 +162,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="mt-8 rounded-[1.6rem] border border-primary/10 bg-[linear-gradient(135deg,rgba(18,40,92,0.04),rgba(255,203,108,0.18))] p-5">
+              <div className="mt-8 rounded-[1.4rem] border border-primary/10 bg-[linear-gradient(135deg,rgba(18,40,92,0.04),rgba(255,203,108,0.18))] p-5">
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm">
                     <Gem className="h-5 w-5 text-primary" />
@@ -177,11 +178,11 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] border border-border bg-white shadow-[0_28px_80px_-44px_rgba(17,41,104,0.28)]">
+            <div className="overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-[0_28px_80px_-44px_rgba(17,41,104,0.28)]">
               <div className="relative min-h-[320px] sm:min-h-[380px]">
                 <img
-                  src={heroImg}
-                  alt="Inside Shuva Electric showroom"
+                  src={aboutImage}
+                  alt="Shuva Electric product display"
                   className="h-full w-full object-cover"
                   loading="lazy"
                   width={1280}
@@ -189,7 +190,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,45,0.06),rgba(10,20,45,0.5))]" />
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                  <div className="rounded-[1.7rem] border border-white/15 bg-white/12 p-5 text-white backdrop-blur-md">
+                  <div className="rounded-[1.45rem] border border-white/15 bg-white/12 p-5 text-white backdrop-blur-md">
                     <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/74">
                       Showroom + Support
                     </p>
@@ -259,9 +260,19 @@ export default function AboutPage() {
 
       <section className="py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="overflow-hidden rounded-[2.2rem] border border-border bg-white shadow-[0_30px_80px_-44px_rgba(17,41,104,0.28)]">
+          <div className="overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-[0_30px_80px_-44px_rgba(17,41,104,0.28)]">
             <div className="grid gap-0 lg:grid-cols-[0.92fr_1.08fr]">
-              <div className="bg-gradient-gold p-8 text-gold-foreground lg:p-10">
+              <div className="relative overflow-hidden bg-gradient-gold p-8 text-gold-foreground lg:p-10">
+                <img
+                  src={aboutImage}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover opacity-16 mix-blend-multiply"
+                  loading="lazy"
+                  width={900}
+                  height={700}
+                  aria-hidden="true"
+                />
+                <div className="relative">
                 <span className="inline-flex rounded-full border border-gold-foreground/15 bg-white/25 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em]">
                   Why Choose Us
                 </span>
@@ -281,6 +292,7 @@ export default function AboutPage() {
                       support for both daily purchases and project requirements.
                     </p>
                   </div>
+                </div>
                 </div>
               </div>
 
@@ -309,7 +321,16 @@ export default function AboutPage() {
 
       <section className="pb-16 lg:pb-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="rounded-[2rem] border border-border bg-white px-8 py-10 shadow-[0_26px_70px_-42px_rgba(17,41,104,0.26)] lg:flex lg:items-center lg:justify-between lg:gap-8 lg:px-10">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-border bg-white px-8 py-10 shadow-[0_26px_70px_-42px_rgba(17,41,104,0.26)] lg:flex lg:items-center lg:justify-between lg:gap-8 lg:px-10">
+            <img
+              src={aboutImage}
+              alt=""
+              className="absolute inset-y-0 right-0 hidden h-full w-2/5 object-cover opacity-10 lg:block"
+              loading="lazy"
+              width={780}
+              height={420}
+              aria-hidden="true"
+            />
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
                 <MapPin className="h-3.5 w-3.5" />
