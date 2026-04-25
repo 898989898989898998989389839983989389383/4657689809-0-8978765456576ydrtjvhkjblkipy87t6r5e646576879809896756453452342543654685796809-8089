@@ -26,8 +26,9 @@ const heroSlides = [
     position: "center center",
   },
   {
-    image: heroImg,
-    alt: "Shuva Electric showroom lighting display",
+    image:
+      "https://scontent.fktm2-2.fna.fbcdn.net/v/t39.30808-6/660463382_122152692500659399_697478393851457709_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=BopKY99A478Q7kNvwEhyNw4&_nc_oc=Adomi1J9zLjjWVefTMWpguzMJdCyv3aQ3Vm6yEI7IvYOx5JArYlxS494I1X7R9RkuTI&_nc_zt=23&_nc_ht=scontent.fktm2-2.fna&_nc_gid=lawGlXwKuCQ6l2qa51DqPA&oh=00_Af3mei0kPZkuqwfKZp7N8MJ0rbwuM-8cLtrL6x-xvh9unw&oe=69F1F8A9",
+    alt: "Shuva Electric second featured slider image",
     position: "center center",
   },
   {
